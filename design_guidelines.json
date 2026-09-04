@@ -1,0 +1,101 @@
+{
+  "theme_strategy": "hybrid_ecommerce_admin",
+  "project_name": "Quick Order (QO) - Virtual Numbers",
+  "typography": {
+    "headings": "Outfit, sans-serif (Weights: 400, 600, 700)",
+    "body": "Plus Jakarta Sans, sans-serif (Weights: 400, 500)",
+    "rules": [
+      "No Inter or generic fonts for headings.",
+      "Tight letter spacing for headings (tracking-tight or tracking-tighter).",
+      "Line height tight for headers (leading-tight), relaxed for body (leading-relaxed)."
+    ]
+  },
+  "colors": {
+    "archetype": "Organic & Earthy / Trust (White-Green concept)",
+    "light_mode": {
+      "background": "#FAFAFA",
+      "surface": "#FFFFFF",
+      "primary": "#16A34A",
+      "primary_hover": "#15803D",
+      "text_main": "#0F172A",
+      "text_muted": "#64748B",
+      "border": "#E2E8F0",
+      "success": "#10B981",
+      "error": "#EF4444"
+    },
+    "dark_mode": {
+      "background": "#020617",
+      "surface": "#0F172A",
+      "primary": "#22C55E",
+      "primary_hover": "#16A34A",
+      "text_main": "#F8FAFC",
+      "text_muted": "#94A3B8",
+      "border": "#1E293B",
+      "success": "#34D399",
+      "error": "#F87171"
+    }
+  },
+  "grids_and_layouts": {
+    "general": "Mobile-first responsive. Generous spacing (p-8 to p-12) for ecommerce sections. Always map direct children to grid containers.",
+    "product_catalog": "grid-cols-1 md:grid-cols-3 gap-8. High emphasis on product flags/imagery, prominent prices, and clear 'Add to Cart' CTAs.",
+    "admin_dashboard": "High density grid. grid-cols-1 md:grid-cols-4 gap-6 for summary widgets. Side navigation for layout wrapper.",
+    "auth_layout": "Split screen layout. Image on one side, clean centered form on the other."
+  },
+  "components": {
+    "navbar": "Sticky to top (sticky top-0 z-50), backdrop-blur-xl (bg-white/80 or bg-slate-900/80). Must include Dark/Light toggle and Cart icon with badge.",
+    "cards": "Modern Card Design: Soft shadow (shadow-md, shadow-lg on hover), rounded-2xl, crisp 1px border. Inside padding p-6.",
+    "buttons": "Pill-shaped (rounded-full) or rounded-xl for main CTAs. Smooth transition on hover (-translate-y-1).",
+    "inputs": "Shadcn based. rounded-lg, focus:ring-2 focus:ring-green-500. Error states must be clear with red borders.",
+    "empty_states": "Minimalist layout with a soft muted icon and text. Always include a prominent CTA to redirect users (e.g., 'Go to Shop').",
+    "notifications": "Use 'sonner' for Success & Error notifications. Top-right positioning.",
+    "footer": "Professional footer with multiple columns. Large brand presence (QO), helpful links, and copyright text."
+  },
+  "motion": {
+    "hover": "Subtle lift (-translate-y-1) for product cards and primary buttons.",
+    "page_transition": "Simple fade-in effect.",
+    "loading": "Smooth skeleton loaders for product fetching and dashboard data (animate-pulse)."
+  },
+  "media_and_images": {
+    "hero_image": {
+      "url": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxzbWFydHBob25lJTIwY29tbXVuaWNhdGlvbnxlbnwwfHx8fDE3ODc4MjIxOTJ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Person using a smartphone - for landing page hero or auth screen background"
+    },
+    "product_japan": {
+      "url": "https://images.pexels.com/photos/34974288/pexels-photo-34974288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Japan flag with autumn trees - for Japan Virtual Number product card"
+    },
+    "product_canada": {
+      "url": "https://images.pexels.com/photos/3744699/pexels-photo-3744699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Canadian flag waving - for Canada Virtual Number product card"
+    },
+    "product_indonesia": {
+      "url": "https://images.unsplash.com/photo-1663602532604-358d1c8d2086?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxpbmRvbmVzaWElMjBmbGFnfGVufDB8fHx8MTc4NzgyMjE5Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "Indonesian flag on pole - for Indonesia Virtual Number product card"
+    },
+    "payment_qris": {
+      "url": "https://images.pexels.com/photos/278430/pexels-photo-278430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "QR Code close-up - placeholder for QRIS manual payment display"
+    }
+  },
+  "specific_features": {
+    "auth_captcha": "Implement a basic visual or math CAPTCHA in the login/register form for security.",
+    "invoice_print": "Use a dedicated print stylesheet (@media print) or window.print() logic to hide navbar, footer, and sidebars. The receipt should be clean, tabular, and professional.",
+    "whatsapp_proof": "The 'Send Proof' button must open a wa.me link with a pre-filled message containing the Order ID and Customer Name.",
+    "admin_table": "Dense data tables for orders. Use colored status badges: Pending (Yellow), Approved (Green), Rejected (Red)."
+  },
+  "instructions_to_main_agent": [
+    "Write components using .js/.jsx extensions since the environment is standard React JS, NOT TypeScript.",
+    "Use lucide-react for all iconography.",
+    "Implement the UI directly using Tailwind CSS and raw HTML where Shadcn components feel too restrictive (e.g., hero sections).",
+    "Use Shadcn components for complex interactions: Dialogs, Selects, Dropdowns, and Tables.",
+    "Use the specific image URLs provided in 'media_and_images'. DO NOT use placeholder text."
+  ],
+  "GENERAL UI UX DESIGN GUIDELINES": [
+    "DO NOT use pure transparent backgrounds for navbars, dropdowns, or modals. Always use solid colors or glassmorphism (backdrop-blur-xl + semi-transparent background).",
+    "DO NOT apply generic centered alignments (`text-center`) everywhere. Left-align dense text, tables, and form inputs to respect human reading patterns.",
+    "ALL interactive elements and key text MUST include a 'data-testid' attribute (e.g., data-testid='login-button', data-testid='cart-total').",
+    "Do not apply 'transition: all' globally. Target specific properties (e.g., 'transition-colors transition-transform').",
+    "Every interaction needs a micro-animation (e.g., hover state color change, slight scale transform).",
+    "Ensure standard WCAG/APCA contrast ratios between text and background colors."
+  ]
+}
