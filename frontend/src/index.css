@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, .font-heading {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 222 47% 11%;
+        --card: 0 0% 100%;
+        --card-foreground: 222 47% 11%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 47% 11%;
+        --primary: 142 72% 36%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 142 40% 96%;
+        --secondary-foreground: 142 60% 20%;
+        --muted: 210 40% 96%;
+        --muted-foreground: 215 16% 47%;
+        --accent: 142 45% 94%;
+        --accent-foreground: 142 60% 20%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --ring: 142 72% 36%;
+        --radius: 0.85rem;
+    }
+    .dark {
+        --background: 222 47% 6%;
+        --foreground: 210 40% 98%;
+        --card: 222 44% 10%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222 44% 10%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 142 71% 45%;
+        --primary-foreground: 222 47% 6%;
+        --secondary: 217 33% 15%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217 33% 15%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 142 40% 16%;
+        --accent-foreground: 142 71% 60%;
+        --destructive: 0 63% 45%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 217 33% 18%;
+        --input: 217 33% 18%;
+        --ring: 142 71% 45%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+    animation: fade-in-up 0.5s ease-out both;
+}
+
+@media print {
+    .no-print { display: none !important; }
+    body { background: #fff !important; }
+    .print-area { box-shadow: none !important; border: none !important; }
+}
