@@ -6,6 +6,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { AdminLayout } from "@/components/AdminLayout";
 
 import Landing from "@/pages/Landing";
+import Faq from "@/pages/Faq";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import DashboardHome from "@/pages/DashboardHome";
@@ -35,6 +36,7 @@ function App() {
 
             <Route element={<ProtectedRoute><SiteLayout /></ProtectedRoute>}>
               <Route path="/dashboard" element={<DashboardHome />} />
+              <Route path="/faq" element={<Faq />} />
               <Route path="/products" element={<Products />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/invoice/:id" element={<Invoice />} />
