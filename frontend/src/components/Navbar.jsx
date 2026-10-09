@@ -4,6 +4,7 @@ import {
   ShoppingCart,
   Home,
   Package,
+  MessagesSquare,
   Clock,
   User,
   LogOut,
@@ -19,6 +20,7 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { to: "/dashboard", label: "Home", icon: Home },
+  { to: "/faq", label: "FaQ", icon: MessagesSquare },
   { to: "/products", label: "Products", icon: Package },
   { to: "/history", label: "History", icon: Clock },
   { to: "/profile", label: "Profile", icon: User },
