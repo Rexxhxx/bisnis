@@ -14,8 +14,18 @@ import { useSettings } from "@/context/SettingsContext";
 export function Footer() {
   const { settings } = useSettings();
 
-  const productLinks = ["Japan Number", "Canada Number", "Indonesia Number"];
-  const helpLinks = ["Cara Order", "Pembayaran Manual", "Konfirmasi"];
+  const productLinks = [
+    { label: "Japan Number", href: "/products" },
+    { label: "Canada Number", href: "/products" },
+    { label: "Indonesia Number", href: "/products" },
+    { label: "Central African Number", href: "/products" },
+  ];
+
+  const helpLinks = [
+    { label: "Cara Order", href: "/faq" },
+    { label: "Pembayaran Manual", href: "/faq" },
+    { label: "Konfirmasi", href: "https://wa.me/6282322811829" },
+  ];
 
   return (
     <footer className="mt-16 border-t border-border/60 bg-card">
@@ -129,14 +139,33 @@ function FooterColumn({ title, icon: Icon, links, delay = 0, className = "" }) {
         {title}
       </h4>
       <ul className="mt-3 space-y-2">
-        {links.map((link) => (
-          <li key={link}>
+        {links.map((link) => {
+          const label = typeof link === "string" ? link : link.label;
+          const href = typeof link === "string" ? undefined : link.href;
+
+          const inner = (
             <span className="group inline-flex items-center gap-1 text-[12.5px] text-muted-foreground transition-colors hover:text-foreground cursor-pointer">
               <ChevronRight className="h-3 w-3 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
-              {link}
+              {label}
             </span>
-          </li>
-        ))}
+          );
+
+          return (
+            <li key={label}>
+              {href ? (
+                href.startsWith("http") ? (
+                  <a href={href} target="_blank" rel="noreferrer">
+                    {inner}
+                  </a>
+                ) : (
+                  <Link to={href}>{inner}</Link>
+                )
+              ) : (
+                inner
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
